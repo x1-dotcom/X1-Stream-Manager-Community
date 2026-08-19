@@ -1,46 +1,127 @@
-# 🚀 X1 Stream Manager Community v1.0.0
-### Modern Adult IPTV Control Center, Live Stream Relay & Customer Line Manager
+<p align="center">
+  <img src="./assets/x1-stream-manager-hero.svg" alt="X1 Stream Manager Community" width="100%" />
+</p>
+
+<p align="center">
+  <strong>SELF-HOSTED · COMMUNITY · FULLY FUNCTIONAL</strong>
+</p>
+
+# X1 Stream Manager Community
+
+**X1 Stream Manager Community** is a public, self-hosted stream-management project from X1.
+
+It is designed for operators who need a practical control layer for **authorized live-stream sources**, playlist delivery, customer/line access and compatible playback workflows.
+
+> **Free means functional.**
+> This public release is intended to be useful as released. It is not a deliberately crippled demo built around paid unlocks.
 
 ---
 
-## 📌 Overview
+<p align="center">
+  <img src="./assets/x1-stream-manager-flow.svg" alt="X1 Stream Manager delivery flow" width="100%" />
+</p>
 
-**X1 Stream Manager Community v1.0.0** is a powerful, lightweight, self-hosted IPTV management platform and live stream resolver. It allows webmasters, IPTV resellers, and community administrators to manage, stream, and deliver 40 high-demand live adult television channels with **zero buffer, instant sub-200ms token resolution, and seamless client compatibility**.
+## What it does
 
-Whether you want to offer interactive live streaming on your website or distribute managed M3U playlists to clients using IPTV applications (VLC, Tivimate, Smart IPTV, Kodi, Enigma2, or Xtream Codes apps), **X1 Stream Manager** delivers a complete out-of-the-box solution.
+- Manages configured live-stream sources from one self-hosted interface.
+- Generates and serves managed playlist outputs.
+- Provides customer/line access management.
+- Supports expiring access credentials and channel/package assignment.
+- Exposes compatibility endpoints for supported IPTV-client workflows.
+- Includes browser-facing playback and operational status tooling.
+- Runs on a standard PHP hosting stack without requiring a large external platform.
 
----
-
-## 🔥 Key Features
-
-- ⚡ **Instant Live Stream Resolver Engine**: Sub-200ms automated token extraction (`wmsAuthSign`) directly from live remote sources.
-- 🛡️ **Zero-CORS & Anti-Block Stream Proxy (`stream.php`)**: Built-in server-side HLS proxy bypasses browser CORS blocks, referrer checks, and `X-Frame-Options` restrictions.
-- 📺 **Dual-Mode Interactive Web Player (`list.php` & `line.php`)**: Watch channels live in your browser using an embedded HLS player, or export formatted `#EXTM3U` playlists.
-- 👥 **Line & Customer Access Management**: Create user accounts, generate expiring line access tokens, assign specific channel packages per line, and track line activity.
-- 📺 **Xtream Codes API Compatibility (`player_api.php`)**: Built-in API emulator for seamless integration with Smarters, Tivimate, and IPTV boxes (`/player_api.php?username=...&password=...`).
-- 🎨 **Sleek Glassmorphism Control Panel**: Modern dark UI with live health badges, latency monitors, and quick M3U link generators.
-- 🚀 **1-Click First-Run Installer (`setup.php`)**: Self-installs upon first visit. No pre-configured database or complex setup required.
+The focus is operational simplicity: **configure → authorize → deliver → monitor**.
 
 ---
 
-## 📋 System Requirements
+## X1 Community position
 
-To host **X1 Stream Manager Community**, your web server must meet the following minimum requirements:
+This repository is part of the **public X1 software family**.
 
-- **Web Server**: Nginx, Apache, Caddy, or PHP Built-in Server.
-- **PHP Version**: PHP 8.0, 8.1, 8.2, or 8.3.
-- **PHP Extensions**: `ext-curl`, `ext-json`, `ext-mbstring`, `ext-zlib`, `ext-openssl`.
-- **File Permissions**: Write access to the `data/` directory (`chmod 775`).
+It is separate from the private X1 IPTV Platform, X1 SaaS and other commercial X1 systems. Public X1 projects are not presented as incomplete modules that require a commercial platform to become usable.
+
+**This project can stand on its own.**
 
 ---
 
-## 🛠️ Step-by-Step Installation Guide
+## Requirements
 
-### Step 1: Upload Files to Server
-1. Download the release package (`X1_Stream_Manager_v1.0.0.zip`).
-2. Upload and extract the files to your web server root directory (e.g., `/var/www/html/` or `public_html/`).
+A typical deployment requires:
 
-### Step 2: Set Directory Permissions
-Ensure the web server has write permission for the `data/` folder:
+- PHP 8.x
+- a web server such as Nginx, Apache or Caddy
+- PHP cURL / JSON / mbstring / zlib / OpenSSL support
+- write access for the application's local data directory
+
+Exact compatibility can vary by environment. Validate the project in your own server stack before production use.
+
+---
+
+## Basic installation
+
+1. Download or clone the repository.
+2. Place the application in the intended web root.
+3. Make the required writable data path available to the web-server user.
+4. Open the application and complete the first-run setup.
+5. Configure only sources and endpoints you are authorized to use.
+
+Example permission command on a conventional Linux deployment:
+
 ```bash
 chmod -R 775 data/
+```
+
+Do not apply broad permissions blindly on shared or hardened servers; use the minimum permissions required by your deployment model.
+
+---
+
+## Access and delivery model
+
+X1 Stream Manager separates the operator-facing control layer from client-facing delivery.
+
+The operator controls configured sources, access rules, lines and playlist outputs. Clients consume only what the operator has explicitly made available to them.
+
+<p align="center">
+  <img src="./assets/x1-stream-manager-boundary.svg" alt="X1 Stream Manager responsibility boundary" width="100%" />
+</p>
+
+---
+
+## Content and rights
+
+This software does **not** grant rights to third-party streams, channels or media.
+
+Use it only with content, endpoints and services that you are legally authorized to access, manage, relay and distribute.
+
+X1 provides the management software. The operator remains responsible for the sources configured in the installation and for compliance with applicable laws, service terms and distribution rights.
+
+---
+
+## Security direction
+
+For any Internet-facing deployment:
+
+- run behind TLS;
+- restrict administrative access;
+- use strong unique credentials;
+- keep PHP and the host OS patched;
+- isolate writable application data appropriately;
+- monitor access logs and abnormal traffic;
+- back up configuration before upgrades.
+
+A public repository is not a substitute for proper server hardening.
+
+---
+
+## X1 design rule
+
+**CONTROL THE SOFTWARE.**  
+**KNOW THE SOURCE.**  
+**AUTHORIZE THE ACCESS.**  
+**DELIVER ONLY WHAT YOU ARE ALLOWED TO DISTRIBUTE.**
+
+<p align="center">
+  <strong>X1 // STREAM OPERATIONS</strong><br>
+  <strong>FREE MEANS FUNCTIONAL.</strong>
+</p>
