@@ -28,6 +28,10 @@
 
 It is designed for operators who need a practical control layer for **authorized live-stream sources**, playlist delivery, customer/line access and compatible playback workflows.
 
+<p align="center">
+  <img src="./assets/x1-stream-manager-capabilities.svg" alt="X1 Stream Manager capability surface" width="100%" />
+</p>
+
 ---
 
 <p align="center">
